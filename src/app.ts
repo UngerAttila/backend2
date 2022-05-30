@@ -28,8 +28,8 @@ export default class App {
     }
 
     private connectToTheDatabase() {
-        // Connect to localhost:27017, create "AdatbázisNeve" database if not exist:
-        mongoose.connect("mongodb://localhost:27017/AdatbázisNeve", err => {
+        // Connect to localhost:27017, create "SzamokDB" database if not exist:
+        mongoose.connect("mongodb://localhost:27017/SzamokDB", err => {
             if (err) {
                 console.log("Unable to connect to the server. Please start MongoDB.");
             }

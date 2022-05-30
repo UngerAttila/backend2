@@ -7,60 +7,25 @@ import { Schema, model } from "mongoose";
 const nsideSchema = new Schema(
     {
         _id: Number,
-        FK_neve: {
-            ref: "oneside",
-            type: Number,
-            required: true,
-        },
-        name: {
+        kerdes: {
             type: String,
             required: true,
             unique: true,
         },
-        description: {
-            type: String,
-            required: true,
-        },
-        isGlutenFree: {
-            type: Boolean,
-            required: true,
-        },
-        prepTime: {
+        valasz: {
             type: Number,
             required: true,
         },
-        minMaxExample: {
+        temakor: {
+            ref: "oneside",
             type: Number,
-            min: [1, "Too few stars, got {VALUE}"],
-            max: [5, "Too many stars, got {VALUE}"],
-            required: [true, "minMaxExample field is required"],
+            required: true,
         },
-        enumExample: {
-            type: String,
-            enum: {
-                values: ["Coffee", "Tea"],
-                message: "{VALUE} is not supported",
-            },
-        },
-        customValidatorExample: {
+        pont: {
             type: Number,
-            validate: {
-                validator: function (v: number) {
-                    return v % 2 == 0;
-                },
-                message: "Nem páros számot adott meg!",
-            },
-        },
-        dateExample: {
-            type: Date,
-            default: new Date(),
-            max: ["2100-12-31", "Csak 21. századi dátumot adhat meg!"],
-            validate: {
-                validator: function (v: Date) {
-                    return v >= new Date();
-                },
-                message: "Az aktuális dátumnál nem adhat meg korábbi dátumot!",
-            },
+            required: true,
+            min: [0, "Nem lehet nulla pont egy kérdés!"],
+            max: [3, "Nem lehet egy kérdés 3 pontnál több!"],
         },
     },
     { versionKey: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
@@ -72,13 +37,13 @@ const nsideSchema = new Schema(
 // justOne says that it'll populate a single connected object, set it to false if you need to get an array
 // nsideSchema.virtual("populateField", {
 //     ref: "oneside",
-//     localField: "FK_neve",
+//     localField: "temakor",
 //     foreignField: "_id",
 //     justOne: true,
 // });
 // Use virtual for populate in controller:
 // const data = await this.nsideM.find().populate("populateField", "-_id field1 field2 -field3 ...");
 
-const nsideModel = model("nside", nsideSchema, "TáblaNeveN");
+const nsideModel = model("nside", nsideSchema, "kerdesek");
 
 export default nsideModel;

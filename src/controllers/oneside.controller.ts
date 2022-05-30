@@ -3,12 +3,12 @@ import Controller from "../interfaces/controller.interface";
 import onesideModel from "./oneside.model";
 
 export default class nsideController implements Controller {
-    public path = "/api/xyz1";
+    public path = "api/temakorok";
     public router = Router();
     private onesideM = onesideModel;
 
     constructor() {
-        this.router.get("/api/xyz1", this.getAll);
+        this.router.get("api/temakorok", this.getAll);
     }
 
     private getAll = async (req: Request, res: Response) => {

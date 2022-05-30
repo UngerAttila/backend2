@@ -1,34 +1,22 @@
 [
     {
         "_id": 1,
-        "field1": "k1"
+        "nev": "tortenelem"
     },
     {
         "_id": 2,
-        "field1": "k2"
+        "nev": "foldrajz"
     },
     {
         "_id": 3,
-        "field1": "k3"
+        "nev": "matematika"
     },
     {
         "_id": 4,
-        "field1": "k4"
+        "nev": "kemia"
     },
     {
         "_id": 5,
-        "field1": "k5"
-    },
-    {
-        "_id": 6,
-        "field1": "k6"
-    },
-    {
-        "_id": 7,
-        "field1": "k7"
-    },
-    {
-        "_id": 8,
-        "field1": "k8"
+        "nev": "magyar"
     }
 ]

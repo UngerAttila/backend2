@@ -5,18 +5,15 @@ import { Schema, model } from "mongoose";
 const onesideSchema = new Schema(
     {
         _id: Number,
-        name: {
+        nev: {
             type: String,
             required: true,
-        },
-        email: {
-            type: String,
-            required: true,
+            unique: true,
         },
     },
     { versionKey: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
 
-const onesideModel = model("oneside", onesideSchema, "TáblaNeve1");
+const onesideModel = model("oneside", onesideSchema, "temakorok");
 
 export default onesideModel;
